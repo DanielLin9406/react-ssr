@@ -2,5 +2,5 @@
   "watch": ["src", "bin", "test", "scripts"],
   "ext": ".ts,.tsx,.js,.pug,.css",
   "ignore": [],
-  "exec": "ts-node ./build-server/server.js"
+  "exec": "ts-node --project tsconfig-server.json ./src/server/index.tsx"
 }

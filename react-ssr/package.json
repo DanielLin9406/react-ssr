@@ -7,6 +7,7 @@
     "dev:build-server": "NODE_ENV=production_ssr webpack --config ./config/server/webpack.js",
     "dev:build-client": "NODE_ENV=production_ssr webpack --config ./config/client/webpack.js",
     "dev:run-server-host-static": "nodemon",
+    "prod:run-server-host-static": "babel-node ./build-server/server.js",
     "dev:run-client-dev-server": "NODE_ENV=development npx webpack-dev-server --config ./config/client/webpack.js --color --progress --hot"
   },
   "dependencies": {

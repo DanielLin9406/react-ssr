@@ -6,7 +6,7 @@ import commonConfig from "./webpack.common";
 import nodeExternals from "webpack-node-externals";
 
 const prodSSRServerConfig = {
-  mode: "development",
+  mode: "production",
   target: "node",
   // externals: nodeExternals({
   //   allowlist: [

@@ -4,13 +4,13 @@ import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import LoadablePlugin from "@loadable/webpack-plugin";
 import commonConfig from "./webpack.common";
 
-const getProdSSRClientConfig = (target) => ({
-  mode: "development",
-  name: target,
-});
+// const getProdSSRClientConfig = (target) => ({
+//   mode: "development",
+//   name: target,
+// });
 
 const prodSSRClientConfig = {
-  mode: "development",
+  mode: "production",
   entry: {
     index: [path.join(__dirname, "../../src/client/index.tsx")],
     vendor: ["react", "react-dom", "react-redux", "redux", "react-router-dom"],
