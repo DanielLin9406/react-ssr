@@ -3,10 +3,12 @@
     [
       "@babel/preset-env",
       {
+        "loose": true,
         "targets": {
           "node": "current"
         }
       }
     ]
-  ]
+  ],
+  "plugins": ["@loadable/babel-plugin", "@babel/plugin-syntax-dynamic-import"]
 }

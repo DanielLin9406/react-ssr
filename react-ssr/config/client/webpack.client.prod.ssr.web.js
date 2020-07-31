@@ -4,6 +4,11 @@ import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import LoadablePlugin from "@loadable/webpack-plugin";
 import commonConfig from "./webpack.common";
 
+const getProdSSRClientConfig = (target) => ({
+  mode: "development",
+  name: target,
+});
+
 const prodSSRClientConfig = {
   mode: "development",
   entry: {

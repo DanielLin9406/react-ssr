@@ -13,7 +13,6 @@ class DashboardPage extends Component<any, any> {
   }
   render() {
     const { users } = this.props;
-    // return this.props.users.map((ele: any) => <div>{ele.name}</div>);
     return (
       (users && (
         <div>
@@ -26,4 +25,4 @@ class DashboardPage extends Component<any, any> {
   }
 }
 
-export { DashboardPage };
+export default DashboardPage;

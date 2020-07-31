@@ -1,4 +1,4 @@
 import http from "http";
-import app from "./server/shared/infra/http/app";
+import app from "./shared/infra/http/app";
 
 http.createServer(app);

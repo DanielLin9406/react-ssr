@@ -4,4 +4,4 @@ const HomePage: React.FC = () => {
   return <div>Home</div>;
 };
 
-export { HomePage };
+export default HomePage;

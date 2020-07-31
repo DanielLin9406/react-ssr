@@ -1,8 +1,9 @@
 import { merge } from "webpack-merge";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "path";
+
 import paths from "../common/webpack.const";
-import commonConfig from "../common/webpack.common";
+import commonConfig from "./webpack.common";
 
 const devClientConfig = {
   mode: "development",
@@ -12,6 +13,9 @@ const devClientConfig = {
       "react-hot-loader/patch",
       path.join(__dirname, "../../src/client/index.tsx"),
     ],
+  },
+  output: {
+    filename: "[name].[hash].js",
   },
   devServer: {
     port: 8080,

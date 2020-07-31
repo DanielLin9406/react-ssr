@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { renderRoutes } from "react-router-config";
 import { isServer } from "./shared/model/infra/Store";
-import { AppRoutes } from "./shared/presenter/routes/index";
+import { AppRoutes } from "./pages/AppPages";
 import { encapsulatedStore } from "./shared/model/infra/Store";
 
 const Application = (

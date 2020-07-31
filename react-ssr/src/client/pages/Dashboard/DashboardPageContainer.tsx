@@ -1,6 +1,6 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { DashboardPage } from "./DashboardPage";
+import DashboardPage from "./DashboardPage";
 import { getCurrentUser } from "../../modules/user/model/use-case/getCurrentUser";
 
 const mapStateToProps = ({ userProfile }: { userProfile: any }) => ({
@@ -10,14 +10,12 @@ const mapStateToProps = ({ userProfile }: { userProfile: any }) => ({
 const mapDispatchToProps = (dispatch: any) =>
   bindActionCreators({ getCurrentUser }, dispatch);
 
-const SSRLoadData = ({ dispatch }: { dispatch: any }) =>
-  dispatch(getCurrentUser());
+// const SSRLoadData = ({ dispatch }: { dispatch: any }) =>
+//   dispatch(getCurrentUser());
 
-export default {
-  component: connect(mapStateToProps, mapDispatchToProps)(DashboardPage),
-  SSRLoadData,
-};
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);
 
 // export default {
-//   component: DashboardPage,
+//   component: connect(mapStateToProps, mapDispatchToProps)(DashboardPage),
+//   SSRLoadData,
 // };

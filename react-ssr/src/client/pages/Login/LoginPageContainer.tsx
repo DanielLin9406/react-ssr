@@ -1,6 +1,6 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { LoginPage } from "./LoginPage";
+import LoginPage from "./LoginPage";
 // import { getCurrentUser } from "../../modules/user/model/use-case/getCurrentUser";
 
 // const mapStateToProps = ({ staff }: { staff: any }) => ({
@@ -18,6 +18,4 @@ import { LoginPage } from "./LoginPage";
 //   SSRLoadData,
 // };
 
-export default {
-  component: LoginPage,
-};
+export default LoginPage;

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { matchRoutes } from "react-router-config";
-import { AppRoutes } from "../../../../client/shared/presenter/routes";
+import { AppRoutes } from "../../../../client/pages/AppPages";
 import { serverInitRenderer } from "../../application/staticRenderer/renderer";
 import { storeCreator } from "../../application/storeCreator/storeCreator";
 const staticFileRouter = Router();

@@ -1,5 +1,3 @@
-import { HomePage } from "./Homepage";
+import HomePage from "./HomePage";
 
-export default {
-  component: HomePage,
-};
+export default HomePage;
