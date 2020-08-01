@@ -1,8 +1,10 @@
 import React from "react";
 import App from "../shared/presenter/routes/App";
-import LoginPageContainerSSR from "./Login/LoginPageContainerSSR";
-import HomePageContainerSSR from "./Home/HomePageContainerSSR";
-import DashboardPageContainerSSR from "./Dashboard/DashboardPageContainerSSR";
+import LoginPage from "./Login/LoginPageLoadableSSR";
+import HomePage from "./Home/HomePageLoadableSSR";
+import DashboardPage from "./Dashboard/DashboardPageLoadableSSR";
+import NotFoundPage from "./system/NotFoundPage";
+import RedirectToNotFoundPage from "./system/RedirectToNotFound";
 import { RouteConfig } from "react-router-config";
 
 export interface IPageProps {
@@ -13,15 +15,18 @@ export interface IPageProps {
 }
 
 const pagePaths = {
-  INDEX: "/",
-  LOGIN: "/login",
-  DASHBOARD: "/dashboard",
+  index: "/",
+  login: "/login",
+  dashboard: "/dashboard",
+  notfound: "/404",
 };
 
 const pagesInfoList = [
-  { ...DashboardPageContainerSSR, path: pagePaths.DASHBOARD },
-  { ...LoginPageContainerSSR, path: pagePaths.LOGIN },
-  { ...HomePageContainerSSR, path: pagePaths.INDEX },
+  { ...DashboardPage, path: pagePaths.dashboard, exact: true },
+  { ...LoginPage, path: pagePaths.login, exact: true },
+  { ...HomePage, path: pagePaths.index, exact: true },
+  { ...NotFoundPage, path: pagePaths.notfound },
+  { ...RedirectToNotFoundPage },
 ];
 
 const AppRoutes: RouteConfig[] = [
@@ -32,4 +37,4 @@ const AppRoutes: RouteConfig[] = [
   },
 ];
 
-export { pagesInfoList, AppRoutes };
+export { pagesInfoList, pagePaths, AppRoutes };

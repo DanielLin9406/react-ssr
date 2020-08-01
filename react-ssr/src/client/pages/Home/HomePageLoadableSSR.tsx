@@ -1,9 +1,9 @@
-import HomePageContainer from "./HomePageContainerLoadable";
+import HomePageLoadable from "./HomePageLoadable";
 
 // const SSRLoadData = ({ dispatch }: { dispatch: any }) =>
 //   dispatch(getCurrentUser());
 
 export default {
-  component: HomePageContainer,
+  component: HomePageLoadable,
   // SSRLoadData,
 };

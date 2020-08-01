@@ -7,6 +7,7 @@ import serialize from "serialize-javascript";
 import { Helmet } from "react-helmet";
 import { Provider } from "react-redux";
 import { ChunkExtractor } from "@loadable/server";
+import { ServerStyleSheet, StyleSheetManager } from "styled-components";
 import { AppRoutes } from "../../../../client/pages/AppPages";
 
 const serverInitRenderer = (req: any, store: any, context: any) => {
@@ -16,10 +17,13 @@ const serverInitRenderer = (req: any, store: any, context: any) => {
     statsFile: webStats,
     entrypoints: ["index"],
   });
+  const sheet = new ServerStyleSheet();
   const jsx = webExtractor.collectChunks(
     <Provider store={store}>
       <StaticRouter location={req.path} context={context}>
-        <div>{renderRoutes(AppRoutes)}</div>
+        <StyleSheetManager sheet={sheet.instance}>
+          <div>{renderRoutes(AppRoutes)}</div>
+        </StyleSheetManager>
       </StaticRouter>
     </Provider>
   );
@@ -30,7 +34,8 @@ const serverInitRenderer = (req: any, store: any, context: any) => {
         ${helmet.title.toString()}
         ${helmet.meta.toString()}
         ${webExtractor.getLinkTags()}
-        ${webExtractor.getStyleTags()}        
+        ${webExtractor.getStyleTags()}
+        ${sheet.getStyleTags()}        
       </head>
       <body>
         <div id="root">${content}</div>

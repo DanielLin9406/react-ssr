@@ -6,15 +6,16 @@ Implement Rract SSR in 3 ways
 /react-ssr
 ```
 
-Issue:
-server will send a entire bundle.js to client at once.
-Is there any way to split bundle.js into different file?
-
-loadable done 20200730
-code-spliting
-
-do not just ts-node
-compile ts code by using ts-loader in webpack and run
+Techstacks and Features:
+webpack
+typescript
+dynamic import based on router and component
+code splitting
+leveraging from webpack optimization with runtimeChunk and
+react
+react SSR
+react router
+styled components/scss file
 
 2. with next.js
 
@@ -22,8 +23,12 @@ compile ts code by using ts-loader in webpack and run
 /react-ssr-with-next
 ```
 
+TODO
+
 3. with razzle.js
 
 ```
 /react-ssr-with-razzle
 ```
+
+TODO

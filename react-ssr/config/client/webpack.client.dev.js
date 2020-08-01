@@ -1,5 +1,6 @@
 import { merge } from "webpack-merge";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "path";
 import paths from "../common/webpack.const";
@@ -24,6 +25,46 @@ const devClientConfig = {
     historyApiFallback: true,
     host: "0.0.0.0",
     hot: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(sass|scss)$/,
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              modules: {
+                localIdentName: "[local]",
+              },
+            },
+          },
+          {
+            loader: "postcss-loader",
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: {
+          loader: "css-loader",
+          options: {
+            sourceMap: true,
+            modules: true,
+          },
+        },
+      },
+    ],
   },
   plugins: (() => {
     const plugins = [

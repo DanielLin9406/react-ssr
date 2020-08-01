@@ -1,4 +1,5 @@
 import paths from "../common/webpack.const";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { loadableTransformer } from "loadable-ts-transformer";
 
 const commonConfig = {
@@ -16,6 +17,36 @@ const commonConfig = {
         },
         include: paths.srcDir,
         // exclude: /node_modules/,
+      },
+      {
+        test: /\.(sass|scss)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                localIdentName: "[local]-[hash:base64:5]",
+              },
+            },
+          },
+          {
+            loader: "postcss-loader",
+          },
+          {
+            loader: "sass-loader",
+          },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: {
+          loader: "css-loader",
+          options: {
+            sourceMap: true,
+            modules: true,
+          },
+        },
       },
     ],
   },

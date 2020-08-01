@@ -1,6 +1,7 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import LoginPage from "./LoginPage";
+import AuthedHOC from "../../shared/presenter/routes/AuthedHOC";
 // import { getCurrentUser } from "../../modules/user/model/use-case/getCurrentUser";
 
 // const mapStateToProps = ({ staff }: { staff: any }) => ({
@@ -18,4 +19,4 @@ import LoginPage from "./LoginPage";
 //   SSRLoadData,
 // };
 
-export default LoginPage;
+export default AuthedHOC(LoginPage);
