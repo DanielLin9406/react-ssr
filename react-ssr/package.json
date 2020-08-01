@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:build-server": "NODE_ENV=production_ssr webpack --config ./config/server/webpack.js",
-    "dev:build-client": "NODE_ENV=production_ssr webpack --config ./config/client/webpack.js",
-    "dev:run-server-host-static": "nodemon",
-    "prod:run-server-host-static": "babel-node ./build-server/server.js",
-    "dev:run-client-dev-server": "NODE_ENV=development npx webpack-dev-server --config ./config/client/webpack.js --color --progress --hot"
+    "dev:run-client-dev-server": "NODE_ENV=development npx webpack-dev-server --config ./config/client/webpack.js --color --progress --hot",
+    "dev:analyze": "BUNDLE_ANALYZE=analyze npm run dev:run-client-dev-server",
+    "prod:build-server": "NODE_ENV=production_ssr webpack --config ./config/server/webpack.js",
+    "prod:build-client": "NODE_ENV=production_ssr webpack --config ./config/client/webpack.js",
+    "prod:build": "npm run prod:build-client && npm run prod:build-server",
+    "prod:run-server-host-static": "npm run prod:build && node ./build-server/server.js",
+    "prod:analyze": "BUNDLE_ANALYZE=analyze npm run prod:build-client"
   },
   "dependencies": {
     "@babel/runtime": "^7.10.5",
@@ -69,6 +71,7 @@
     "redux-devtools-extension": "^2.13.8",
     "ts-loader": "^8.0.1",
     "webpack": "^4.44.0",
+    "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.0.8",

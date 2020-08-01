@@ -1,5 +1,5 @@
 import React from "react";
-import { App } from "../shared/presenter/routes/App";
+import App from "../shared/presenter/routes/App";
 import LoginPageContainerSSR from "./Login/LoginPageContainerSSR";
 import HomePageContainerSSR from "./Home/HomePageContainerSSR";
 import DashboardPageContainerSSR from "./Dashboard/DashboardPageContainerSSR";

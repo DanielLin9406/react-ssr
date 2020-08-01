@@ -9,6 +9,5 @@
         }
       }
     ]
-  ],
-  "plugins": ["@loadable/babel-plugin", "@babel/plugin-syntax-dynamic-import"]
+  ]
 }

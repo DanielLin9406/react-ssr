@@ -16,7 +16,6 @@ const serverInitRenderer = (req: any, store: any, context: any) => {
     statsFile: webStats,
     entrypoints: ["index"],
   });
-  // const jsx = webExtractor.collectChunks();
   const jsx = webExtractor.collectChunks(
     <Provider store={store}>
       <StaticRouter location={req.path} context={context}>
@@ -25,18 +24,13 @@ const serverInitRenderer = (req: any, store: any, context: any) => {
     </Provider>
   );
   const content = renderToString(jsx);
-  // const content = renderToString(
-  //   <Provider store={store}>
-  //     <StaticRouter location={req.path} context={context}>
-  //       <div>{renderRoutes(AppRoutes)}</div>
-  //     </StaticRouter>
-  //   </Provider>
-  // );
   return `
     <html>
       <head>
         ${helmet.title.toString()}
         ${helmet.meta.toString()}
+        ${webExtractor.getLinkTags()}
+        ${webExtractor.getStyleTags()}        
       </head>
       <body>
         <div id="root">${content}</div>

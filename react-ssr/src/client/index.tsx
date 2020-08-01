@@ -1,24 +1,27 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { AppContainer } from "react-hot-loader";
+import { hydrate, render } from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { renderRoutes } from "react-router-config";
 import { isServer } from "./shared/model/infra/Store";
 import { AppRoutes } from "./pages/AppPages";
 import { encapsulatedStore } from "./shared/model/infra/Store";
+import { loadableReady } from "@loadable/component";
+
+const root = document.querySelector("#root");
 
 const Application = (
-  <AppContainer>
-    <Provider store={encapsulatedStore()}>
-      <BrowserRouter>
-        <div>{renderRoutes(AppRoutes)}</div>
-      </BrowserRouter>
-    </Provider>
-  </AppContainer>
+  <Provider store={encapsulatedStore()}>
+    <BrowserRouter>
+      <div>{renderRoutes(AppRoutes)}</div>
+    </BrowserRouter>
+  </Provider>
 );
+
 if (isServer) {
-  ReactDOM.hydrate(Application, document.querySelector("#root"));
+  loadableReady(() => {
+    hydrate(Application, root);
+  });
 } else {
-  ReactDOM.render(Application, document.querySelector("#root"));
+  render(Application, root);
 }

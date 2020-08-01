@@ -8,14 +8,7 @@ import nodeExternals from "webpack-node-externals";
 const prodSSRServerConfig = {
   mode: "production",
   target: "node",
-  // externals: nodeExternals({
-  //   allowlist: [
-  //     /^@loadable\/component$/,
-  //     /^react$/,
-  //     /^react-dom$/,
-  //     /^loadable-ts-transformer$/,
-  //   ],
-  // }),
+  externals: [nodeExternals()],
   output: {
     path: path.resolve(__dirname, "../../build-server"),
     filename: "[name].js",
