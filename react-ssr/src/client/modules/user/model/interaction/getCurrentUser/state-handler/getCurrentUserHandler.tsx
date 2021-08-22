@@ -1,5 +1,5 @@
 import { GetCurrentUserReadyState } from "./getCurrentUserState";
-import { IState } from "../../../../../../shared/model/interaction/state-handler/IState";
+import { IState } from "../../../../../model/interaction/state-handler/IState";
 
 export class GetCurrentUserHandler {
   private state: IState;

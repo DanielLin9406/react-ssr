@@ -1,7 +1,7 @@
 import { IUser } from "./IUser";
 
 export interface IUserState {
-  user: IUser | {};
+  user: IUser | [];
 
   error: string;
 }

@@ -1,5 +1,5 @@
-import { IState } from "../../../../../../shared/model/interaction/state-handler/IState";
-import { AbstractState } from "../../../../../../shared/model/interaction/state-handler/AState";
+import { IState } from "../../../../../model/interaction/state-handler/IState";
+import { AbstractState } from "../../../../../model/interaction/state-handler/AState";
 import { GetCurrentUserHandler } from "./getCurrentUserHandler";
 import { UserService } from "../../../../../user/model/infra/data-fetching/apis/UserServices";
 import * as actionCreators from "../getCurrentUserActionCreators";
@@ -33,6 +33,7 @@ class GetCurrentUserFetchState extends AGetCurrentUserState {
   public async executeDataFetching(): Promise<any> {
     const userService = new UserService({ api: this.handler.api });
     this.eitherError = await userService.getCurrentUser(this.handler.payload);
+    console.log(this.eitherError);
     if (this.eitherError.isError()) {
       this.error = this.eitherError.result.error;
     } else {

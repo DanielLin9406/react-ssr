@@ -1,10 +1,10 @@
 import {
   errorInstance,
   successInstance,
-} from "../../../../../../shared/model/infra/EitherError";
-import { APIResult } from "../../../../../../shared/model/infra/APIResult";
-import { APIService } from "../../../../../../shared/model/infra/APIService";
-import { APIResponse } from "../../../../../../shared/model/infra/IAPIResults";
+} from "../../../../../model/infra/EitherError";
+import { APIResult } from "../../../../../model/infra/APIResult";
+import { APIService } from "../../../../../model/infra/APIService";
+import { APIResponse } from "../../../../../model/infra/IAPIResults";
 import { GetCurrentUserDTO } from "../dtos/getCUrrentUserDTO";
 
 export interface IUserService {
@@ -20,6 +20,7 @@ class UserService extends APIService implements IUserService {
   public async getCurrentUser(payload: {}): Promise<any> {
     try {
       const axiosRes = await this.get({ url: "/user/users" });
+      console.log(axiosRes.data.users);
       return successInstance(APIResult.ok<void>(axiosRes.data.users));
     } catch (err) {
       return errorInstance(

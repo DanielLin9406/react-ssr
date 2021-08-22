@@ -1,10 +1,9 @@
 import { initialUserState } from "./initialUserState";
-import { IGetCurrentUserActionName } from "../../../interaction/getCurrentUser/getCurrentUserActionNames";
 import { IUserAction } from "../../../interaction/getCurrentUser/getCurrentUserActionCreators";
 import * as actions from "../../../interaction/getCurrentUser/getCurrentUserActionNames";
 
-const userProfile = (state = initialUserState, action: IUserAction) => {
-  switch (action.type as IGetCurrentUserActionName) {
+const userState = (state = initialUserState, action: IUserAction) => {
+  switch (action.type as actions.IGetCurrentUserActionName) {
     case actions.GET_CURRENT_USER:
       return {
         ...state,
@@ -12,7 +11,7 @@ const userProfile = (state = initialUserState, action: IUserAction) => {
     case actions.GET_CURRENT_USER_SUCCESS:
       return {
         ...state,
-        users: action.user,
+        user: action.user,
       };
     case actions.GET_CURRENT_USER_FAILURE:
       return {
@@ -23,4 +22,4 @@ const userProfile = (state = initialUserState, action: IUserAction) => {
   return state;
 };
 
-export { userProfile };
+export { userState };

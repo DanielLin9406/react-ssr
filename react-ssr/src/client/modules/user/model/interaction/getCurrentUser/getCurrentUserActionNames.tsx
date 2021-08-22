@@ -1,4 +1,4 @@
-export type IGetCurrentUserActionName =
+type IGetCurrentUserActionName =
   | "GET_CURRENT_USER"
   | "GET_CURRENT_USER_SUCCESS"
   | "GET_CURRENT_USER_FAILURE";
@@ -9,4 +9,9 @@ const GET_CURRENT_USER_SUCCESS: IGetCurrentUserActionName =
 const GET_CURRENT_USER_FAILURE: IGetCurrentUserActionName =
   "GET_CURRENT_USER_FAILURE";
 
-export { GET_CURRENT_USER, GET_CURRENT_USER_SUCCESS, GET_CURRENT_USER_FAILURE };
+export {
+  IGetCurrentUserActionName,
+  GET_CURRENT_USER,
+  GET_CURRENT_USER_SUCCESS,
+  GET_CURRENT_USER_FAILURE,
+};

@@ -10,6 +10,7 @@ function getCurrentUser(): IUserAction {
   };
 }
 function getCurrentUserSuccess(user: any): IUserAction {
+  console.log(user);
   return {
     type: actions.GET_CURRENT_USER_SUCCESS,
     user,

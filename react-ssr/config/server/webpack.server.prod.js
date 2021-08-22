@@ -5,6 +5,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import commonConfig from "./webpack.common";
 import nodeExternals from "webpack-node-externals";
+import WebpackAssetsManifest from "webpack-assets-manifest";
 
 const prodSSRServerConfig = {
   mode: "production",
@@ -23,6 +24,7 @@ const prodSSRServerConfig = {
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: ["**/*"],
     }),
+    new WebpackAssetsManifest({}),
   ],
 };
 

@@ -4,7 +4,7 @@ import { composedReducers } from "./ReducerRoot";
 import axios from "axios";
 
 // For universal ("isomorphic") apps, prefix it with typeof window !== 'undefined' &&
-export const isServer = !(
+const isServer = !(
   typeof window !== "undefined" &&
   window.document &&
   window.document.createElement
@@ -40,4 +40,4 @@ const encapsulatedStore = () => {
   return store;
 };
 
-export { encapsulatedStore };
+export { isServer, encapsulatedStore };

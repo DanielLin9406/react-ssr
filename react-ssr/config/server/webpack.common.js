@@ -16,7 +16,7 @@ const commonConfig = {
           },
         },
         include: paths.srcDir,
-        // exclude: /node_modules/,
+        exclude: /node_modules/,
       },
       {
         test: /\.(sass|scss)$/,
@@ -37,16 +37,6 @@ const commonConfig = {
             loader: "sass-loader",
           },
         ],
-      },
-      {
-        test: /\.css$/,
-        use: {
-          loader: "css-loader",
-          options: {
-            sourceMap: true,
-            modules: true,
-          },
-        },
       },
     ],
   },

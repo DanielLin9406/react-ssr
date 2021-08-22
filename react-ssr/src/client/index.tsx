@@ -3,9 +3,9 @@ import { hydrate, render } from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { renderRoutes } from "react-router-config";
-import { isServer } from "./shared/model/infra/Store";
+import { isServer } from "./modules/model/infra/Store";
 import { AppRoutes } from "./pages/AppPages";
-import { encapsulatedStore } from "./shared/model/infra/Store";
+import { encapsulatedStore } from "./modules/model/infra/Store";
 import { loadableReady } from "@loadable/component";
 
 const root = document.querySelector("#root");

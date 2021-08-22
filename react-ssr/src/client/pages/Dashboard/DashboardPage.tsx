@@ -13,12 +13,13 @@ class DashboardPage extends Component<any, any> {
     this.props.getCurrentUser();
   }
   render() {
-    const { users } = this.props;
+    const { user } = this.props;
+    // console.log(this.props.user);
     return (
-      (users && (
+      (user && (
         <div>
           <Link to="/">Home</Link>
-          {this.props.users.map((ele: any) => (
+          {this.props.user.map((ele: any) => (
             <div key={ele.id}>{ele.name}</div>
           ))}
           <GreenButton>click</GreenButton>

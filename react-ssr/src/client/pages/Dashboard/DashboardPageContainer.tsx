@@ -4,8 +4,8 @@ import RequireAuthHOC from "../../shared/presenter/routes/RequireAuthHOC";
 import DashboardPage from "./DashboardPage";
 import { getCurrentUser } from "../../modules/user/model/use-case/getCurrentUser";
 
-const mapStateToProps = ({ userProfile }: { userProfile: any }) => ({
-  users: userProfile.users,
+const mapStateToProps = ({ userState }: { userState: any }) => ({
+  user: userState.user,
 });
 
 const mapDispatchToProps = (dispatch: any) =>
